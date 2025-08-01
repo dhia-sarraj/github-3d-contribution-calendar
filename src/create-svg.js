@@ -2,8 +2,8 @@ import * as d3 from "d3";
 import { JSDOM } from "jsdom";
 import { create3DContrib } from "./create-3d-contrib.js"
 
-const width = 900;
-const height = 500;
+const width = 1000;
+const height = 650;
 
 export const createSvg = (userInfo)=>{
     const fakeDom = new JSDOM("<!DOCTYPE html><html><body><div class='container'></div></body></html>");
@@ -24,7 +24,7 @@ export const createSvg = (userInfo)=>{
         .attr("fill", "#eeddaa");
 
     // Creating the 3D contribution calendar
-    // create3DContrib(svg, userInfo);
+    create3DContrib(svg, userInfo, width, height);
 
     return(container.html());
 }
