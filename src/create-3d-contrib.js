@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import { colorPalette } from "./create-svg.js";
 
 const diffDate = (beforeDate, afterDate,)=>{
     return Math.floor((afterDate - beforeDate) / (24 * 60 * 60 * 1000));
@@ -45,15 +46,8 @@ const createTopSide = (baseX, baseY, height, dx, dy)=>{
     return(topSide.toString());
 }
 
-const getColors = (userInfo, day)=>{
-    const colors = {
-        "commit": "#7fbff0",
-        "issue": "#2a9d8f",
-        "pullRequest": "#003049",
-        "pullRequestReview": "#fdf0d5",
-        "repoEdit": "#c1121f",
-        "privateCommit": "#9d0208"
-    }
+const getColors = (userInfo, day, colorTheme)=>{
+    const colors = colorPalette[colorTheme];
     let typesOfContributions = [];
 
     const date = day.date;
@@ -100,7 +94,7 @@ const getColors = (userInfo, day)=>{
     return(typesOfContributions);
 }
 
-const createBlock = (userInfo, day, group, startTime, dx, dy, dxx, dyy)=>{
+const createBlock = (userInfo, day, colorTheme, group, startTime, dx, dy, dxx, dyy)=>{
     const dayOfWeek = day.weekday;
     const weeksSinceStart = Math.floor(diffDate(startTime, new Date(day.date).getTime()) / 7); 
 
@@ -110,7 +104,8 @@ const createBlock = (userInfo, day, group, startTime, dx, dy, dxx, dyy)=>{
 
     const subGroup = group.append("g"); // Each day is a group inside the calendar (which is also a group inside the whole SVG)
     
-    const colors = getColors(userInfo, day).length === 0? ["#efefef"] : getColors(userInfo, day);
+    const rawColors = getColors(userInfo, day, colorTheme);
+    const colors = rawColors.length === 0? ["#efefef"] : rawColors;
 
     if(colors.length === 1){
         const leftSide = createRightSide(baseX, baseY, 3, dxx, dyy);
@@ -155,7 +150,7 @@ const createBlock = (userInfo, day, group, startTime, dx, dy, dxx, dyy)=>{
     }
 }
 
-export const create3DContrib = (svg, userInfo, width)=>{
+export const create3DContrib = (svg, userInfo, width, colorTheme)=>{
     const weeks = userInfo.contributionCalendar.weeks; // List of weeks
 
     if(weeks.length === 0){
@@ -171,7 +166,7 @@ export const create3DContrib = (svg, userInfo, width)=>{
     const group = svg.append("g");
     weeks.forEach(week => {
         week.contributionDays.forEach(day => {
-            createBlock(userInfo, day, group, startTime, dx, dy, dxx, dyy);
+            createBlock(userInfo, day, colorTheme, group, startTime, dx, dy, dxx, dyy);
         });
     });
 }
