@@ -13,7 +13,6 @@ export const fetchData = async (username)=>{
                 user(login: ${username}) {
                     contributionsCollection {
                     contributionCalendar {
-                        totalContributions
                         weeks {
                         contributionDays {
                             contributionCount
@@ -26,6 +25,7 @@ export const fetchData = async (username)=>{
                         contributions(first: 100) {
                         nodes {
                             occurredAt
+                            commitCount
                         }
                         }
                     }

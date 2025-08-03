@@ -24,7 +24,7 @@ export const createSvg = (userInfo)=>{
         .attr("fill", "#eeddaa");
 
     // Creating the 3D contribution calendar
-    create3DContrib(svg, userInfo, width, height);
+    create3DContrib(svg, userInfo, width);
 
     return(container.html());
 }
