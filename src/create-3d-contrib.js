@@ -150,6 +150,18 @@ const createBlock = (userInfo, day, colorTheme, group, startTime, dx, dy, dxx, d
     }
 }
 
+const addAnimation = (group)=>{
+    group.append("animate")
+        .attr("transform", "translate(0, 0)")
+
+    group.append("animateTransform")
+        .attr("attributeName", "transform")
+        .attr("type", "translate")
+        .attr("values", "0,0; 0,15; 0,0")
+        .attr("dur", "5s")
+        .attr("repeatCount","indefinite")
+};
+
 export const create3DContrib = (svg, userInfo, width, colorTheme)=>{
     const weeks = userInfo.contributionCalendar.weeks; // List of weeks
 
@@ -163,10 +175,13 @@ export const create3DContrib = (svg, userInfo, width, colorTheme)=>{
     const dxx = dx * 0.88;
     const dyy = dy * 0.88;
 
-    const group = svg.append("g");
+    const group = svg.append("g")
     weeks.forEach(week => {
         week.contributionDays.forEach(day => {
             createBlock(userInfo, day, colorTheme, group, startTime, dx, dy, dxx, dyy);
         });
     });
+
+    // Add animation to calendar
+    addAnimation(group);
 }
