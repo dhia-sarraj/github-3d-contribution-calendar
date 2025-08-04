@@ -1,5 +1,5 @@
-import { fetchData } from "./fetch-data.js"
-import { createSvg } from "./create-svg.js"
+import { fetchData } from "../src/fetch-data.js"
+import { createSvg } from "../src/create-svg.js"
 
 export default async(req, res)=>{
     const username = req.query.username;
