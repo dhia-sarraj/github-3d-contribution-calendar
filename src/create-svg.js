@@ -13,8 +13,8 @@ export const colorPalette = {
         "issue": "#ffb86c",
         "pullRequest": "#50fa7b",
         "pullRequestReview": "#bd93f9",
-        "repoEdit": "#ff5555",
-        "privateCommit": "#ff79c6"        
+        "repoEdit": "#ff79c6",
+        "privateCommit": "#ff5555"        
     },
     "light": {
         "background": "transparent",
@@ -22,7 +22,7 @@ export const colorPalette = {
         "issue": "#2a9d8f",
         "pullRequest": "#003049",
         "pullRequestReview": "#fdf0d5",
-        "repoEdit": "#c1121f",
+        "repoEdit": "#e5be76",
         "privateCommit": "#9d0208"
     }
 }
