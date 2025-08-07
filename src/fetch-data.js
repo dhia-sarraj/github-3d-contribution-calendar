@@ -9,10 +9,17 @@ export const fetchData = async (username)=>{
     const headers = { Authorization: `bearer ${process.env.GITHUB_TOKEN}` };
     const req = {
         query: `
-            query {
-                user(login: ${username}) {
-                    contributionsCollection {
+        query {
+            user(login: ${username}) {
+                starredRepositories {
+                    totalCount 
+                }
+                repositories(first: 100, isFork: true, ownerAffiliations: OWNER) {
+                    totalCount
+                }
+                contributionsCollection {
                     contributionCalendar {
+                        totalContributions
                         weeks {
                         contributionDays {
                             contributionCount
@@ -23,35 +30,35 @@ export const fetchData = async (username)=>{
                     }
                     commitContributionsByRepository(maxRepositories: 100) {
                         contributions(first: 100) {
-                        nodes {
-                            occurredAt
-                            commitCount
-                        }
+                            nodes {
+                                occurredAt
+                                commitCount
+                            }
                         }
                     }
                     issueContributions(first: 100) {
                         nodes {
-                        occurredAt
+                            occurredAt
                         }
                     }
                     pullRequestContributions(first: 100) {
                         nodes {
-                        occurredAt
+                            occurredAt
                         }
                     }
                     pullRequestReviewContributions(first: 100) {
                         nodes {
-                        occurredAt
+                            occurredAt
                         }
                     }
                     repositoryContributions(first: 100) {
                         nodes {
-                        occurredAt
+                            occurredAt
                         }
                     }
-                    }
                 }
-                }
+            }
+        }
             `
     };
 

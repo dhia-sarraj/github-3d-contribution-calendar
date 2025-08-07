@@ -6,7 +6,7 @@ export default async(req, res)=>{
     const colorTheme = req.query.colorTheme;
     let userInfo = await fetchData(username);
 
-    const svgString = createSvg(userInfo.data.user.contributionsCollection, colorTheme);
+    const svgString = createSvg(userInfo.data.user, colorTheme);
     
     // Sending a response (svg)
     res.setHeader("Content-Type", "image/svg+xml");

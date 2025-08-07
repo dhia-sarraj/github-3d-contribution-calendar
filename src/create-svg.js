@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import { JSDOM } from "jsdom";
 import { create3DContrib } from "./create-3d-contrib.js"
 import { createColorLegend } from "./create-color-legend.js";
+import { addStats } from "./add-stats.js"
 
 const width = 1000;
 const height = 650;
@@ -46,10 +47,13 @@ export const createSvg = (userInfo, colorTheme)=>{
         .attr("fill", `${colorPalette[colorTheme]["background"]}`);
 
     // Creating the 3D contribution calendar
-    create3DContrib(svg, userInfo, width, colorTheme);
+    create3DContrib(svg, userInfo.contributionsCollection, width, colorTheme);
 
     // Add color legend
     createColorLegend(svg, colorTheme);
+
+    // Add stats
+    addStats(svg, userInfo, colorTheme);
 
     return(container.html());
 }

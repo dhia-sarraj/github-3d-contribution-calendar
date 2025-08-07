@@ -33,7 +33,7 @@ export const createColorLegend = (svg, colorTheme)=>{
                     .attr("y", i+12)
                     .text(getText(key))
                     .attr("fill", `${colorTheme === "dark" ? "white" : "black"}`)
-                    .attr("font-size", "15px")
+                    .style("font-size", "15px")
                     .style("font-family", "Arial, sans-serif")
         }
         i +=25;
