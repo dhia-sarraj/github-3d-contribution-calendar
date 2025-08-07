@@ -9,5 +9,6 @@ export default async(req, res)=>{
     const svgString = createSvg(userInfo.data.user.contributionsCollection, colorTheme);
     
     // Sending a response (svg)
+    res.setHeader("Content-Type", "image/svg+xml");
     res.send(svgString);
 }

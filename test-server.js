@@ -1,5 +1,5 @@
 import express from "express";
-import render from "./src/index.js";
+import render from "./api/index.js";
 
 const app = express();
 
