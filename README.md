@@ -20,6 +20,8 @@ Change the `?username=` value to your Github username.
 ![Dhia's Github Calendar](https://github-3d-contribution-calendar.vercel.app/api?username=dhia-sarraj)
 ```
 
+**Note:** If you're not sure how to add a README to your Github profile, here's the full [documentation](https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme) to guide you through the process.
+
 ## Color Themes
 With inbuilt themes, you can customize the look of your calendar.
 
@@ -39,7 +41,7 @@ Contributions and ideas are welcome! If you want to:
 
 Feel free to open an issue or submit a pull request! Clear and concise changes help us review and merge them more efficiently.
 
-**Note:** The calendar image might take a moment to load, especially if there's a lot of data or a slow internet connection. If you have any ideas on how to speed it up, we'd love to hear them!
+**⚠️ Note:** The calendar image might take a moment to load, especially if there's a lot of data or a slow internet connection. If you have any ideas on how to speed it up, we'd love to hear them!
 
 Thanks! ❤️
 
