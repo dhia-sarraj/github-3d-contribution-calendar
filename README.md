@@ -43,8 +43,6 @@ Feel free to open an issue or submit a pull request! Clear and concise changes h
 
 **⚠️ Note:** The calendar image might take a moment to load, especially if there's a lot of data or a slow internet connection. If you have any ideas on how to speed it up, we'd love to hear them!
 
-Thanks! ❤️
-
 ---
 
-Made with ❤️ and Javascript.
+Thanks! ❤️
