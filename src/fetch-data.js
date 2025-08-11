@@ -10,7 +10,7 @@ export const fetchData = async (username)=>{
     const req = {
         query: `
         query {
-            user(login: ${username}) {
+            user(login: "${username}") {
                 starredRepositories {
                     totalCount 
                 }
