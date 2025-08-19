@@ -1,6 +1,6 @@
 # Color-Coded 3D Github Contribution Graphs
 
-![3D Calendar](https://github-3d-contribution-calendar.vercel.app/api?username=swolchok)
+![3D Calendar (Reload the page if you can't see the image)](https://github-3d-contribution-calendar.vercel.app/api?username=swolchok)
 
 ## Overview
 A friendly little project that renders a **3D-style Github contribution calendar** as an animated image.
